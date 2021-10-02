@@ -14,6 +14,9 @@ pub use team::*;
 mod channel;
 pub use channel::*;
 
+mod files;
+pub use files::*;
+
 mod bot;
 pub use bot::*;
 
@@ -103,6 +106,12 @@ pub struct SlackClientSecret(pub String);
 #[derive(Debug, Eq, PartialEq, Hash, Clone, Serialize, Deserialize, ValueStruct)]
 pub struct EmailAddress(pub String);
 
+#[derive(Debug, Eq, PartialEq, Hash, Clone, Serialize, Deserialize, ValueStruct)]
+pub struct SlackFileId(pub String);
+
+#[derive(Debug, Eq, PartialEq, Hash, Clone, Serialize, Deserialize, ValueStruct)]
+pub struct SlackCommentId(pub String);
+
 #[skip_serializing_none]
 #[derive(Debug, PartialEq, Clone, Serialize, Deserialize, Builder)]
 pub struct SlackResponseMetadata {
@@ -124,6 +133,7 @@ pub enum SlackConversationType {
 
 impl ToString for SlackConversationType {
     fn to_string(&self) -> String {
+        println!("xxxxxxxxx");
         match self {
             SlackConversationType::Im => "im".into(),
             SlackConversationType::Mpim => "mpim".into(),

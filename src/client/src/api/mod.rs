@@ -1,6 +1,7 @@
 mod bots;
 mod chat;
 mod conversations;
+mod files;
 mod oauth;
 mod team;
 mod test;
@@ -11,6 +12,7 @@ mod webhook;
 pub use bots::*;
 pub use chat::*;
 pub use conversations::*;
+pub use files::*;
 pub use oauth::*;
 pub use team::*;
 pub use test::*;
